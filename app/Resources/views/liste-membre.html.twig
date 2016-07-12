@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <h1 class="text-center">Les inscrits</h1>
+        <h1 class="text-center">Les derniers inscrits</h1>
       </div>
     </div>
     <div class="col-md-12 text-center">
@@ -30,3 +30,25 @@
     </div>
   </div>
 </form>
+
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+<div class="col-md-offset-4 col-md-2 text-center">
+<button type="button" name="name" value="" class="btn-primary"><a href="{{ path('RencontrePublic_new') }}">Créer une rencontre </a></button>
+</div>
+
+<div class="col-md-2 text-center">
+<button type="button" name="name" value="" class="btn-primary"><a href="{{ path('RencontrePublic_show') }}">Voir les rencontres publics </a></button>
+</div>
+
+{% else %}
+<div class="col-md-12 text-center">
+<button type="button" name="name" value="" class="btn-primary"><a href="{{ path('fos_user_registration_register') }}">Inscrivez-vous !</a></button>
+</div>
+
+<div class="col-md-12 text-center">
+<p>
+  Déjà inscrit ? <a href="{{ path('fos_user_security_login') }}">Connectez-vous !</a>
+</p>
+</div>
+{% endif %}

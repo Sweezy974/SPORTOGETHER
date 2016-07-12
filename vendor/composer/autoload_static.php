@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit037d53a71c635481aa887d2b600cd1e8
+class ComposerStaticInitf2c7f35afd9edba6e98c1867299f81d4
 {
     public static $files = array (
         '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
@@ -18,15 +18,6 @@ class ComposerStaticInit037d53a71c635481aa887d2b600cd1e8
     );
 
     public static $prefixLengthsPsr4 = array (
-        'Z' => 
-        array (
-            'Zend\\EventManager\\' => 18,
-            'Zend\\Code\\' => 10,
-        ),
-        'V' => 
-        array (
-            'Vich\\UploaderBundle\\' => 20,
-        ),
         'T' => 
         array (
             'Tests\\' => 6,
@@ -54,7 +45,6 @@ class ComposerStaticInit037d53a71c635481aa887d2b600cd1e8
         'P' => 
         array (
             'Psr\\Cache\\' => 10,
-            'PackageVersions\\' => 16,
         ),
         'M' => 
         array (
@@ -79,18 +69,6 @@ class ComposerStaticInit037d53a71c635481aa887d2b600cd1e8
     );
 
     public static $prefixDirsPsr4 = array (
-        'Zend\\EventManager\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/zendframework/zend-eventmanager/src',
-        ),
-        'Zend\\Code\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/zendframework/zend-code/src',
-        ),
-        'Vich\\UploaderBundle\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/vich/uploader-bundle',
-        ),
         'Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
@@ -167,10 +145,6 @@ class ComposerStaticInit037d53a71c635481aa887d2b600cd1e8
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
-        'PackageVersions\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
-        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -230,17 +204,6 @@ class ComposerStaticInit037d53a71c635481aa887d2b600cd1e8
             array (
                 0 => __DIR__ . '/..' . '/psr/log',
             ),
-            'ProxyManager\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/ocramius/proxy-manager/src',
-            ),
-        ),
-        'M' => 
-        array (
-            'Metadata\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/jms/metadata/src',
-            ),
         ),
         'D' => 
         array (
@@ -290,11 +253,11 @@ class ComposerStaticInit037d53a71c635481aa887d2b600cd1e8
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit037d53a71c635481aa887d2b600cd1e8::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit037d53a71c635481aa887d2b600cd1e8::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInit037d53a71c635481aa887d2b600cd1e8::$fallbackDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit037d53a71c635481aa887d2b600cd1e8::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit037d53a71c635481aa887d2b600cd1e8::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf2c7f35afd9edba6e98c1867299f81d4::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf2c7f35afd9edba6e98c1867299f81d4::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInitf2c7f35afd9edba6e98c1867299f81d4::$fallbackDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitf2c7f35afd9edba6e98c1867299f81d4::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitf2c7f35afd9edba6e98c1867299f81d4::$classMap;
 
         }, null, ClassLoader::class);
     }
