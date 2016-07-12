@@ -10,8 +10,15 @@ class DefaultController extends Controller
     /**
      * @Route("/" , name="accueil")
      */
-    public function indexAction()
+     public function indexAction()
     {
-        return $this->render('sportogetherBundle:Default:index.html.twig');
+      $em = $this->getDoctrine()->getManager();
+      $user = $em->getRepository('sportogetherBundle:User')->findAll();
+
+
+        return $this->render('liste-membre.html.twig', array(
+          'user' => $user,
+        ));
+
     }
 }

@@ -1,0 +1,32 @@
+{% include 'FOSUserBundle::layout.html.twig' %}
+
+
+<form class="container" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h1 class="text-center">Les inscrits</h1>
+      </div>
+    </div>
+    <div class="col-md-12 text-center">
+      <h4 class="col-md-3">Pseudo </h4>
+      <h4 class="col-md-3">Prenom </h4>
+      <h4 class="col-md-3">Sexe </h4>
+      <h4 class="col-md-3">Sport pratiqué </h4>
+
+
+
+
+
+      {% for user in user %}
+
+      <div class="col-md-3">{{ user.username }}</div>
+      <div class="col-md-3">{{ user.prenom }}</div>
+      <div class="col-md-3">{{ user.sexe}}</div>
+      <div class="col-md-3">{{ user.sport}}</div>
+
+
+      {% endfor %}
+    </div>
+  </div>
+</form>

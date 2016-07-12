@@ -109,6 +109,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'sportogether\\Bundle\\Controller\\DefaultController::indexAction',  '_route' => 'accueil',);
         }
 
+        // liste_membres
+        if ($pathinfo === '/show/membres') {
+            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'HEAD'));
+                goto not_liste_membres;
+            }
+
+            return array (  '_controller' => 'sportogether\\Bundle\\Controller\\MembresController::indexAction',  '_route' => 'liste_membres',);
+        }
+        not_liste_membres:
+
         // RencontrePublic_new
         if ($pathinfo === '/new/RencontrePublic') {
             if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {

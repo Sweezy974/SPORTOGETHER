@@ -171,3 +171,7 @@ form a{
   color:blue;
 
 }
+
+form{
+  border-radius: 25px;
+}
