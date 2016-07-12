@@ -1,0 +1,52 @@
+{% include "FOSUserBundle::layout.html.twig" %}
+
+{% block body %}
+ <div class="container">
+   <div class="row">
+     <div class="col-md-offset-3 col-md-6">
+
+       {{ form_start(form) }}
+       <div class="form-group">
+         {{ form_label(form.nomGroupe) }}
+         {{ form_widget(form.nomGroupe, {'attr': {'class':'form-control' , 'placeholder':'Nom du Groupe'}}) }}
+         {{ form_errors(form.nomGroupe) }}
+       </div>
+
+       <div class="form-group">
+         {{ form_label(form.description) }}
+         {{ form_widget(form.description, {'attr': {'class':'form-control', 'placeholder':'Description du Groupe'}}) }}
+         {{ form_errors(form.description) }}
+       </div>
+
+       <div class="form-group">
+         {{ form_label(form.lieu) }}
+         {{ form_widget(form.lieu, {'attr': {'class':'form-control', 'placeholder':'lieu'}}) }}
+         {{ form_errors(form.lieu) }}
+       </div>
+
+
+       <div class="form-group">
+         {{ form_label(form.date) }}
+         {{ form_widget(form.date, {'attr': {'class':''}}) }}
+       </div>
+
+
+
+       <div class="form-group">
+         {{ form_label(form.heure) }}
+         {{ form_widget(form.heure, {'attr': {'class':''}}) }}
+       </div>
+
+
+       <div class="text-center">
+         <a href="/profile"><input id="envoyer" type="submit" value="Créer" /></a<
+       </div>
+       {{ form_end(form) }}
+     </div>
+   </div>
+ </div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

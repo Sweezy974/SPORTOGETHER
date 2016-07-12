@@ -1,0 +1,36 @@
+{% include 'FOSUserBundle::layout.html.twig' %}
+
+
+<form class="container" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h1 class="text-center">Liste des rencontres Publics</h1>
+      </div>
+    </div>
+    <div class="col-md-12 text-center">
+      <h4 class="col-md-2">Nom du groupe </h4>
+      <h4 class="col-md-2">description </h4>
+      <h4 class="col-md-2">Lieu </h4>
+      <h4 class="col-md-2">Date </h4>
+      <h4 class="col-md-2">Heure </h4>
+      <h4 class="col-md-1"><i class="fa fa-users"></i></h4>
+      <h4 class="col-md-1"><i class="fa fa-child"></i></h4>
+
+
+
+
+      {% for rencontrePublic in rencontrePublic %}
+
+      <div class="col-md-2">{{ rencontrePublic.nomGroupe }}</div>
+      <div class="col-md-2">{{ rencontrePublic.description }}</div>
+      <div class="col-md-2">{{ rencontrePublic.lieu }}</div>
+      <div class="col-md-2">{{ rencontrePublic.date|date("d/m/Y")}}</div>
+      <div class="col-md-2">{{ rencontrePublic.heure|date("h:m:s")}}</div>
+      <div class="col-md-1"><a href="#">MEMBRES</a></div>
+      <div class="col-md-1"><a href="#">PARTICIPER</a></div>
+
+      {% endfor %}
+    </div>
+  </div>
+</form>
