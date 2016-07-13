@@ -34,16 +34,16 @@
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
 <div class="col-md-offset-4 col-md-2 text-center">
-<button type="button" name="name" value="" class="btn-primary"><a href="{{ path('RencontrePublic_new') }}">Créer une rencontre </a></button>
+<a href="{{ path('RencontrePublic_new') }}"><button type="button" name="name" value="" class="btn-primary">Créer une rencontre </button></a>
 </div>
 
 <div class="col-md-2 text-center">
-<button type="button" name="name" value="" class="btn-primary"><a href="{{ path('RencontrePublic_show') }}">Voir les rencontres publics </a></button>
+<a href="{{ path('RencontrePublic_show') }}"><button type="button" name="name" value="" class="btn-primary">Voir les rencontres publics </button></a>
 </div>
 
 {% else %}
 <div class="col-md-12 text-center">
-<button type="button" name="name" value="" class="btn-primary"><a href="{{ path('fos_user_registration_register') }}">Inscrivez-vous !</a></button>
+<a href="{{ path('fos_user_registration_register') }}"><button type="button" name="name" value="" class="btn-primary">Inscrivez-vous !</button></a>
 </div>
 
 <div class="col-md-12 text-center">

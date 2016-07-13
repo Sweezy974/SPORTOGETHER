@@ -35,6 +35,7 @@ class RencontrePublicController extends Controller
       'rencontrePublic' => $rencontrePublic,
       'form' => $form->createView(),
     ));
+    
   }
   /**
  * Lists all Dons entities.

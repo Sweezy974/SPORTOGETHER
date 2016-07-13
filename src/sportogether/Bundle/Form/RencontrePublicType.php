@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 
 class RencontrePublicType extends AbstractType
 {
@@ -22,7 +22,7 @@ class RencontrePublicType extends AbstractType
             ->add('description')
             ->add('lieu')
             ->add('date', DateType::class, array('years' => range(2016,2017),))
-            ->add('heure')
+            ->add('heure',TimeType::class, array('placeholder' => array('hour' => set_time_limit('12'), 'minute' => 'Minute')))
         ;
     }
 
