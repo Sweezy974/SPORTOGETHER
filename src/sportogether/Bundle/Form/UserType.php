@@ -22,8 +22,15 @@ class UserType extends AbstractType
             ->add('age', DateType::class, array('years' => range(1920,1998),))
             ->add('adresse')
             ->add('telephone')
-            ->add('sexe' , ChoiceType::class,   array("choices" => array("Femme" =>"Femme","Homme" =>"Homme",)))
-            ->add('sport')
+            ->add('sexe' , ChoiceType::class,   array("choices" => array("Femme" =>"Femme","Homme" =>"Homme","Indéfini" =>"Indéfini",)))
+            ->add('sport', ChoiceType::class,   array("choices" => array("athlétisme" =>"athlétisme","équipe" =>"équipe",
+                                                                         "combat" =>"combat","nautique" =>"nautique",
+                                                                         "mécanique" =>"mécanique","hiver" =>"hiver",
+                                                                         "précision" =>"précision","plein air" =>"plein air",
+                                                                         "gymnastique" =>"gymnastique","aérien" =>"aérien",
+                                                                         "tous" =>"tous",
+
+          )))
             ->add('description' )
             ->add('recherche' , ChoiceType::class,   array(
                 "choices" => array("une femme " =>"une femme ","un homme " =>"un homme ",

@@ -142,6 +142,28 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
         not_RencontrePublic_show:
 
+        // sportogether_details-rencontre
+        if (0 === strpos($pathinfo, '/voir-rencontre') && preg_match('#^/voir\\-rencontre/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'HEAD'));
+                goto not_sportogether_detailsrencontre;
+            }
+
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'sportogether_details-rencontre')), array (  '_controller' => 'sportogether\\Bundle\\Controller\\RencontrePublicController::voirRencontreAction',));
+        }
+        not_sportogether_detailsrencontre:
+
+        // sportogether_join-rencontre
+        if (0 === strpos($pathinfo, '/rejoindre-rencontre') && preg_match('#^/rejoindre\\-rencontre/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'HEAD'));
+                goto not_sportogether_joinrencontre;
+            }
+
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'sportogether_join-rencontre')), array (  '_controller' => 'sportogether\\Bundle\\Controller\\RencontrePublicController::joinAction',));
+        }
+        not_sportogether_joinrencontre:
+
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

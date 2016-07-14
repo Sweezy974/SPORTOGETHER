@@ -35,25 +35,76 @@ class RencontrePublicController extends Controller
       'rencontrePublic' => $rencontrePublic,
       'form' => $form->createView(),
     ));
-    
   }
   /**
- * Lists all Dons entities.
- *
- * @Route("/show/RencontrePublic", name="RencontrePublic_show")
- * @Method("GET")
- */
- public function indexAction()
-{
-  $em = $this->getDoctrine()->getManager();
-  $rencontrePublic = $em->getRepository('sportogetherBundle:RencontrePublic')->findAll();
-  $user = $this->getUser();
+  * Lists all Dons entities.
+  *
+  * @Route("/show/RencontrePublic", name="RencontrePublic_show")
+  * @Method("GET")
+  */
+  public function indexAction()
+  {
+    $em = $this->getDoctrine()->getManager();
+    $rencontrePublic = $em->getRepository('sportogetherBundle:RencontrePublic')->findAll();
+    $user = $this->getUser();
 
     return $this->render('rencontrePublic-show.html.twig', array(
       'rencontrePublic' => $rencontrePublic,
     ));
 
-}
+  }
+
+  /**
+  * voir un groupe de rencontre.
+  *
+  * @Route("/voir-rencontre/{id}", name="sportogether_details-rencontre")
+  * @Method("GET")
+  */
+  public function voirRencontreAction($id)
+
+  {
+
+    $em = $this->getDoctrine()->getManager();
+    $rencontrePublic = $em->getRepository('sportogetherBundle:RencontrePublic')->findOneById($id);
+
+    /* $userLogged = $this->getUser();
+    $userId = $userLogged->getId();
+    $rejoindre->addrejoindre($userLogged);*/
+
+    //     $em = $this->getDoctrine()->getManager();
+    //     $em->persist($don);
+    //     $em->flush();
+    //
+    return $this->render('rencontrePublic-show.html.twig',
+    array("rencontrePublic"=>$rencontrePublic));
+    //
+  }
+
+
+  /**
+  * Rejoindre un groupe de rencontre.
+  *
+  * @Route("/rejoindre-rencontre/{id}", name="sportogether_join-rencontre")
+  * @Method("GET")
+  */
+  public function joinAction(RencontrePublic $rencontrePublic)
+  {
+
+    $em = $this->getDoctrine()->getManager();
+    $rencontrePublic = $em->getRepository('sportogetherBundle:RencontrePublic')->findOneById($id);
+
+    $userLogged = $this->getUser();
+    $userId = $userLogged->getId();
+
+    // $rejoindre->addrejoindre($userLogged);
+
+    //     $em = $this->getDoctrine()->getManager();
+    //     $em->persist($don);
+    //     $em->flush();
+
+    return $this->render('rencontrePublic-show.html.twig',
+    array("rencontrePublic"=>$rencontrePublic));
+  }
 
 
 
