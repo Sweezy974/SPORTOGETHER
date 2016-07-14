@@ -29,7 +29,7 @@ class RencontrePublicController extends Controller
       $em = $this->getDoctrine()->getManager();
       $em->persist($rencontrePublic);
       $em->flush();
-      return $this->redirectToRoute('accueil');
+      return $this->redirectToRoute('RencontrePublic_show');
     }
     return $this->render('rencontrePublic-new.html.twig', array(
       'rencontrePublic' => $rencontrePublic,

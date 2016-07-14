@@ -1,3 +1,8 @@
+messenger:
+    resource: "@messengerBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 sportogether:
     resource: "@sportogetherBundle/Controller/"
     type:     annotation

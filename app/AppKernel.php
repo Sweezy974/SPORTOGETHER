@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new sportogether\Bundle\sportogetherBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new messengerBundle\messengerBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

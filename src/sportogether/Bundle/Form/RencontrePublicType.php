@@ -22,7 +22,7 @@ class RencontrePublicType extends AbstractType
             ->add('description')
             ->add('lieu')
             ->add('date', DateType::class, array('years' => range(2016,2017),))
-            ->add('heure',TimeType::class, array('placeholder' => array('hour' => set_time_limit('12'), 'minute' => 'Minute')))
+            ->add('heure',TimeType::class)
         ;
     }
 

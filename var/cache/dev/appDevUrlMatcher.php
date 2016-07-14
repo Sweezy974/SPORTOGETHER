@@ -100,6 +100,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // messenger_messages
+        if ($pathinfo === '/messages') {
+            if (!in_array($this->context->getMethod(), array('POST', 'GET', 'HEAD'))) {
+                $allow = array_merge($allow, array('POST', 'GET', 'HEAD'));
+                goto not_messenger_messages;
+            }
+
+            return array (  '_controller' => 'messengerBundle\\Controller\\DefaultController::sendMessageAction',  '_route' => 'messenger_messages',);
+        }
+        not_messenger_messages:
+
         // accueil
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

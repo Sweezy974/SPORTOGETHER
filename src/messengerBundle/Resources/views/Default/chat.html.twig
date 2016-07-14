@@ -1,0 +1,23 @@
+{% include "FOSUserBundle::layout.html.twig" %}
+
+<div class="container">
+
+
+  {% for messages in message %}
+  <form class="chat1 col-md-offset-6 col-md-4 ">
+
+    <h4 class="col-md-12 text-left container"><p class="col-md-12">{{messages.message}}</p> </h4>
+    <div class="col-md-12 text-right container">{{ "now"|date("D M Y    h:i:s") }}</div>
+  </form>
+
+  {% endfor %}
+
+  <div class="bottom col-md-12">
+  {{ form_start(form) }}
+  <div class="field field-area" >
+    {{ form_widget(form.message, { 'attr':{'class':'field-input field-textarea col-md-12 '} }) }}
+  </div>
+  {{form_end(form)}}
+</div>
+
+</div>

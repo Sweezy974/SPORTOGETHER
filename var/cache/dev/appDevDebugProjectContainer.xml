@@ -18,6 +18,7 @@
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="sportogetherBundle">sportogether\Bundle\sportogetherBundle</parameter>
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
+      <parameter key="messengerBundle">messengerBundle\messengerBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -545,7 +546,7 @@
                   <tag name="cache.pool"/>
                   <argument>A0bR4MrfSz</argument>
                   <argument></argument>
-                  <argument>ubCCWst5jh7CIrOTLP7vuQ</argument>
+                  <argument>v7LTOikWRshIqL1xRGRfIA</argument>
                   <argument>D:\wamp\www\sportogether\var\cache\dev/pools</argument>
                   <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                   <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -558,7 +559,7 @@
                   <tag name="cache.pool"/>
                   <argument>4TtWDExgvL</argument>
                   <argument></argument>
-                  <argument>ubCCWst5jh7CIrOTLP7vuQ</argument>
+                  <argument>v7LTOikWRshIqL1xRGRfIA</argument>
                   <argument>D:\wamp\www\sportogether\var\cache\dev/pools</argument>
                   <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                   <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -1207,7 +1208,7 @@
       <tag name="cache.pool"/>
       <argument>4M2C2s81+E</argument>
       <argument></argument>
-      <argument>ubCCWst5jh7CIrOTLP7vuQ</argument>
+      <argument>v7LTOikWRshIqL1xRGRfIA</argument>
       <argument>D:\wamp\www\sportogether\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -1991,7 +1992,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>578757690fc640.51000839</argument>
+            <argument>5787d932b2a580.53271198</argument>
           </service>
         </argument>
       </argument>
@@ -2285,7 +2286,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>578757690fc640.51000839</argument>
+            <argument>5787d932b2a580.53271198</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2739,6 +2740,7 @@
           <call method="setEntityNamespaces">
             <argument type="collection">
               <argument key="sportogetherBundle">sportogether\Bundle\Entity</argument>
+              <argument key="messengerBundle">messengerBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -2759,10 +2761,23 @@
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
                         <argument>D:\wamp\www\sportogether\src\sportogether\Bundle\Entity</argument>
+                        <argument>D:\wamp\www\sportogether\src\messengerBundle\Entity</argument>
                       </argument>
                     </service>
                   </argument>
                   <argument>sportogether\Bundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>D:\wamp\www\sportogether\src\sportogether\Bundle\Entity</argument>
+                        <argument>D:\wamp\www\sportogether\src\messengerBundle\Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>messengerBundle\Entity</argument>
                 </call>
                 <call method="addDriver">
                   <argument type="service">
@@ -3317,6 +3332,10 @@
       <call method="addPath">
         <argument>D:\wamp\www\sportogether\vendor\friendsofsymfony\user-bundle/Resources/views</argument>
         <argument>FOSUser</argument>
+      </call>
+      <call method="addPath">
+        <argument>D:\wamp\www\sportogether\src\messengerBundle/Resources/views</argument>
+        <argument>messenger</argument>
       </call>
       <call method="addPath">
         <argument>D:\wamp\www\sportogether\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
