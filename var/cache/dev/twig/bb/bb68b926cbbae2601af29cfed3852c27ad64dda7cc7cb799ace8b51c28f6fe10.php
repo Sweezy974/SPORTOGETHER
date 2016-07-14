@@ -19,8 +19,8 @@ class __TwigTemplate_1a186487034b3187a376330cfd7c6fbb8a05e66d49d3029d2d37fa58360
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b4b0a7837edf3d875524c8306345a269d61f0306d51342d76502ca6dbe4a5b32 = $this->env->getExtension("native_profiler");
-        $__internal_b4b0a7837edf3d875524c8306345a269d61f0306d51342d76502ca6dbe4a5b32->enter($__internal_b4b0a7837edf3d875524c8306345a269d61f0306d51342d76502ca6dbe4a5b32_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FOSUserBundle::layout.html.twig"));
+        $__internal_7867bef47cdeb7d06c449e00b11b9e67c2415a4ea7f690088ca746e1162452c3 = $this->env->getExtension("native_profiler");
+        $__internal_7867bef47cdeb7d06c449e00b11b9e67c2415a4ea7f690088ca746e1162452c3->enter($__internal_7867bef47cdeb7d06c449e00b11b9e67c2415a4ea7f690088ca746e1162452c3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FOSUserBundle::layout.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -57,35 +57,30 @@ class __TwigTemplate_1a186487034b3187a376330cfd7c6fbb8a05e66d49d3029d2d37fa58360
         // line 28
         echo $this->env->getExtension('routing')->getPath("accueil");
         echo "\">SPORTOGETHER <span class=\"sr-only\">(current)</span></a></li>
-            </ul>
-            <ul class=\"nav navbar-nav\">
-              ";
-        // line 31
+            <li class=\"dropdown\">
+              <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Rencontre<span class=\"caret\"></span></a>
+                <ul class=\"dropdown-menu\">
+                ";
+        // line 32
         if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-            // line 32
-            echo "              <li><a class=\"nav-link\" href=\"";
+            // line 33
+            echo "                <li><a class=\"nav-link\" href=\"";
             echo $this->env->getExtension('routing')->getPath("RencontrePublic_new");
             echo "\">";
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Créer une rencontre", array(), "FOSUserBundle"), "html", null, true);
             echo "</a></li>
-              <li><a class=\"nav-link\" href=\"";
-            // line 33
-            echo $this->env->getExtension('routing')->getPath("RencontrePublic_show");
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Participer à une rencontre", array(), "FOSUserBundle"), "html", null, true);
-            echo "</a></li>
-              ";
-        } else {
-            // line 35
-            echo "              <li><a class=\"nav-link\" href=\"";
-            echo $this->env->getExtension('routing')->getPath("RencontrePublic_show");
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Participer à une rencontre", array(), "FOSUserBundle"), "html", null, true);
-            echo "</a></li>
-              ";
+                ";
         }
-        // line 37
-        echo "              </ul>
+        // line 35
+        echo "                <li><a class=\"nav-link\" href=\"";
+        echo $this->env->getExtension('routing')->getPath("RencontrePublic_show");
+        echo "\">";
+        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Participer à une rencontre", array(), "FOSUserBundle"), "html", null, true);
+        echo "</a></li>
+              </ul>
+              </li>
+            </ul>
+
 
 
           </div>
@@ -102,45 +97,39 @@ class __TwigTemplate_1a186487034b3187a376330cfd7c6fbb8a05e66d49d3029d2d37fa58360
 
             <li class=\"nav-item\">
               ";
-        // line 53
+        // line 55
         if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-            // line 54
+            // line 56
             echo "
 
 
             ";
         } else {
-            // line 58
+            // line 60
             echo "            <!--
             <a class=\"nav-link\"
             href=\"";
-            // line 60
+            // line 62
             echo $this->env->getExtension('routing')->getPath("fos_user_registration_register");
             echo "\">";
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Inscription", array(), "FOSUserBundle"), "html", null, true);
             echo "</a>
           -->
-          <li class=\"nav-item\">
-            <a href=\"";
-            // line 63
-            echo $this->env->getExtension('routing')->getPath("RencontrePublic_show");
-            echo "\" role=\"button\"><i class=\"fa fa-edit\" aria-hidden=\"true\"></i> Participer à une rencontre </a>
-          </li>
           ";
         }
-        // line 66
+        // line 65
         echo "        </li>
 
         <li class=\"nav-item\">
           ";
-        // line 69
+        // line 68
         if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-            // line 70
+            // line 69
             echo "          <a class=\"nav-link\" href=\"";
             echo $this->env->getExtension('routing')->getPath("fos_user_profile_show");
             echo "\">
           Connecté en tant que: ";
-            // line 71
+            // line 70
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "username", array()), "html", null, true);
             echo "</a>
 
@@ -148,41 +137,41 @@ class __TwigTemplate_1a186487034b3187a376330cfd7c6fbb8a05e66d49d3029d2d37fa58360
 
             ";
         } else {
-            // line 76
+            // line 75
             echo "            <a class=\"nav-link\"
             href=\"";
-            // line 77
+            // line 76
             echo $this->env->getExtension('routing')->getPath("fos_user_security_login");
             echo "\">";
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Connexion", array(), "FOSUserBundle"), "html", null, true);
             echo "</a>
             ";
         }
-        // line 79
+        // line 78
         echo "          </li>
           <li class=\"nav-item\">
 
             ";
-        // line 82
+        // line 81
         if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-            // line 83
+            // line 82
             echo "            <a class=\"nav-link\"
             href=\"";
-            // line 84
+            // line 83
             echo $this->env->getExtension('routing')->getPath("fos_user_security_logout");
             echo "\">
             ";
-            // line 85
+            // line 84
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Se deconnecter", array(), "FOSUserBundle"), "html", null, true);
             echo "
           </a>
           ";
         } else {
-            // line 88
+            // line 87
             echo "          <!--
           <a class=\"nav-link\"
           href=\"";
-            // line 90
+            // line 89
             echo $this->env->getExtension('routing')->getPath("fos_user_registration_register");
             echo "\">";
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Inscription", array(), "FOSUserBundle"), "html", null, true);
@@ -193,7 +182,7 @@ class __TwigTemplate_1a186487034b3187a376330cfd7c6fbb8a05e66d49d3029d2d37fa58360
         </li>
         ";
         }
-        // line 96
+        // line 95
         echo "      </li>
 
 
@@ -241,41 +230,41 @@ class __TwigTemplate_1a186487034b3187a376330cfd7c6fbb8a05e66d49d3029d2d37fa58360
 
   <div>
     ";
-        // line 142
+        // line 141
         $this->displayBlock('fos_user_content', $context, $blocks);
-        // line 144
+        // line 143
         echo "  </div>
   ";
-        // line 145
+        // line 144
         $this->displayBlock('javascript', $context, $blocks);
-        // line 154
+        // line 153
         echo "
 
 </body>
 </html>
 ";
         
-        $__internal_b4b0a7837edf3d875524c8306345a269d61f0306d51342d76502ca6dbe4a5b32->leave($__internal_b4b0a7837edf3d875524c8306345a269d61f0306d51342d76502ca6dbe4a5b32_prof);
+        $__internal_7867bef47cdeb7d06c449e00b11b9e67c2415a4ea7f690088ca746e1162452c3->leave($__internal_7867bef47cdeb7d06c449e00b11b9e67c2415a4ea7f690088ca746e1162452c3_prof);
 
     }
 
     // line 5
     public function block_title($context, array $blocks = array())
     {
-        $__internal_03a2d99ebb5e109eeccf5110edc552300fcb777ffe126d3881dfd39242e01654 = $this->env->getExtension("native_profiler");
-        $__internal_03a2d99ebb5e109eeccf5110edc552300fcb777ffe126d3881dfd39242e01654->enter($__internal_03a2d99ebb5e109eeccf5110edc552300fcb777ffe126d3881dfd39242e01654_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_2fbd29ae2c9c4442e480d195eb831ac00604b7aa57f0ae5303bd0d4419f85a67 = $this->env->getExtension("native_profiler");
+        $__internal_2fbd29ae2c9c4442e480d195eb831ac00604b7aa57f0ae5303bd0d4419f85a67->enter($__internal_2fbd29ae2c9c4442e480d195eb831ac00604b7aa57f0ae5303bd0d4419f85a67_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Welcome!";
         
-        $__internal_03a2d99ebb5e109eeccf5110edc552300fcb777ffe126d3881dfd39242e01654->leave($__internal_03a2d99ebb5e109eeccf5110edc552300fcb777ffe126d3881dfd39242e01654_prof);
+        $__internal_2fbd29ae2c9c4442e480d195eb831ac00604b7aa57f0ae5303bd0d4419f85a67->leave($__internal_2fbd29ae2c9c4442e480d195eb831ac00604b7aa57f0ae5303bd0d4419f85a67_prof);
 
     }
 
     // line 6
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_bb5af3756e925515039cfe976e609b19491b03a24f0a5d998246af3ab4fb8947 = $this->env->getExtension("native_profiler");
-        $__internal_bb5af3756e925515039cfe976e609b19491b03a24f0a5d998246af3ab4fb8947->enter($__internal_bb5af3756e925515039cfe976e609b19491b03a24f0a5d998246af3ab4fb8947_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_1381ceca8fc133ffedfe3c9d13baa046289278205c452452e6a67643adc6329c = $this->env->getExtension("native_profiler");
+        $__internal_1381ceca8fc133ffedfe3c9d13baa046289278205c452452e6a67643adc6329c->enter($__internal_1381ceca8fc133ffedfe3c9d13baa046289278205c452452e6a67643adc6329c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 7
         echo "    <link rel=\"stylesheet\" href=\"";
@@ -295,54 +284,54 @@ class __TwigTemplate_1a186487034b3187a376330cfd7c6fbb8a05e66d49d3029d2d37fa58360
         echo "\">
     ";
         
-        $__internal_bb5af3756e925515039cfe976e609b19491b03a24f0a5d998246af3ab4fb8947->leave($__internal_bb5af3756e925515039cfe976e609b19491b03a24f0a5d998246af3ab4fb8947_prof);
+        $__internal_1381ceca8fc133ffedfe3c9d13baa046289278205c452452e6a67643adc6329c->leave($__internal_1381ceca8fc133ffedfe3c9d13baa046289278205c452452e6a67643adc6329c_prof);
 
     }
 
-    // line 142
+    // line 141
     public function block_fos_user_content($context, array $blocks = array())
     {
-        $__internal_45184e1c3c3eefba9bbaedc1b84a34cdaefbad31566d088e0f59f4f97d252c76 = $this->env->getExtension("native_profiler");
-        $__internal_45184e1c3c3eefba9bbaedc1b84a34cdaefbad31566d088e0f59f4f97d252c76->enter($__internal_45184e1c3c3eefba9bbaedc1b84a34cdaefbad31566d088e0f59f4f97d252c76_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "fos_user_content"));
+        $__internal_14649851db739c9de8e4ede473c639163405f7867d7e2a53bbdf6c3e86d62e7d = $this->env->getExtension("native_profiler");
+        $__internal_14649851db739c9de8e4ede473c639163405f7867d7e2a53bbdf6c3e86d62e7d->enter($__internal_14649851db739c9de8e4ede473c639163405f7867d7e2a53bbdf6c3e86d62e7d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "fos_user_content"));
 
-        // line 143
+        // line 142
         echo "    ";
         
-        $__internal_45184e1c3c3eefba9bbaedc1b84a34cdaefbad31566d088e0f59f4f97d252c76->leave($__internal_45184e1c3c3eefba9bbaedc1b84a34cdaefbad31566d088e0f59f4f97d252c76_prof);
+        $__internal_14649851db739c9de8e4ede473c639163405f7867d7e2a53bbdf6c3e86d62e7d->leave($__internal_14649851db739c9de8e4ede473c639163405f7867d7e2a53bbdf6c3e86d62e7d_prof);
 
     }
 
-    // line 145
+    // line 144
     public function block_javascript($context, array $blocks = array())
     {
-        $__internal_c27145e6d0b31ec2a20be57a0ac63fb75a467d631401dc90384b65fe4632bf0a = $this->env->getExtension("native_profiler");
-        $__internal_c27145e6d0b31ec2a20be57a0ac63fb75a467d631401dc90384b65fe4632bf0a->enter($__internal_c27145e6d0b31ec2a20be57a0ac63fb75a467d631401dc90384b65fe4632bf0a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascript"));
+        $__internal_56571739ea2778eb07f5fe429a7a9a99d3b87933b3c49f3e31bb746690934ec2 = $this->env->getExtension("native_profiler");
+        $__internal_56571739ea2778eb07f5fe429a7a9a99d3b87933b3c49f3e31bb746690934ec2->enter($__internal_56571739ea2778eb07f5fe429a7a9a99d3b87933b3c49f3e31bb746690934ec2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascript"));
 
-        // line 146
+        // line 145
         echo "  <script src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("bootstrap/js/bootstrap.min.js"), "html", null, true);
         echo "\" charset=\"utf-8\"></script>
   <script src=\"";
-        // line 147
+        // line 146
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("bootstrap/js/jquery-2.1.4.js"), "html", null, true);
         echo "\" charset=\"utf-8\"></script>
   <script src=\"";
-        // line 148
+        // line 147
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("bootstrap/js/jquery.js"), "html", null, true);
         echo "\" charset=\"utf-8\"></script>
   <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>
   <script src=\"";
-        // line 150
+        // line 149
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("js/script.js"), "html", null, true);
         echo "\"></script>
   <script src=\"//code.jquery.com/jquery.min.js\"></script>
   <script src=\"";
-        // line 152
+        // line 151
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
   ";
         
-        $__internal_c27145e6d0b31ec2a20be57a0ac63fb75a467d631401dc90384b65fe4632bf0a->leave($__internal_c27145e6d0b31ec2a20be57a0ac63fb75a467d631401dc90384b65fe4632bf0a_prof);
+        $__internal_56571739ea2778eb07f5fe429a7a9a99d3b87933b3c49f3e31bb746690934ec2->leave($__internal_56571739ea2778eb07f5fe429a7a9a99d3b87933b3c49f3e31bb746690934ec2_prof);
 
     }
 
@@ -358,7 +347,7 @@ class __TwigTemplate_1a186487034b3187a376330cfd7c6fbb8a05e66d49d3029d2d37fa58360
 
     public function getDebugInfo()
     {
-        return array (  341 => 152,  336 => 150,  331 => 148,  327 => 147,  322 => 146,  316 => 145,  309 => 143,  303 => 142,  294 => 10,  290 => 9,  286 => 8,  281 => 7,  275 => 6,  263 => 5,  252 => 154,  250 => 145,  247 => 144,  245 => 142,  197 => 96,  186 => 90,  182 => 88,  176 => 85,  172 => 84,  169 => 83,  167 => 82,  162 => 79,  155 => 77,  152 => 76,  144 => 71,  139 => 70,  137 => 69,  132 => 66,  126 => 63,  118 => 60,  114 => 58,  108 => 54,  106 => 53,  88 => 37,  80 => 35,  73 => 33,  66 => 32,  64 => 31,  58 => 28,  38 => 12,  36 => 6,  32 => 5,  26 => 1,);
+        return array (  330 => 151,  325 => 149,  320 => 147,  316 => 146,  311 => 145,  305 => 144,  298 => 142,  292 => 141,  283 => 10,  279 => 9,  275 => 8,  270 => 7,  264 => 6,  252 => 5,  241 => 153,  239 => 144,  236 => 143,  234 => 141,  186 => 95,  175 => 89,  171 => 87,  165 => 84,  161 => 83,  158 => 82,  156 => 81,  151 => 78,  144 => 76,  141 => 75,  133 => 70,  128 => 69,  126 => 68,  121 => 65,  113 => 62,  109 => 60,  103 => 56,  101 => 55,  75 => 35,  67 => 33,  65 => 32,  58 => 28,  38 => 12,  36 => 6,  32 => 5,  26 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -389,15 +378,17 @@ class __TwigTemplate_1a186487034b3187a376330cfd7c6fbb8a05e66d49d3029d2d37fa58360
 /*         <div class="row">*/
 /*           <ul class="nav navbar-nav">*/
 /*             <li class="active"><a href="{{ path('accueil') }}">SPORTOGETHER <span class="sr-only">(current)</span></a></li>*/
-/*             </ul>*/
-/*             <ul class="nav navbar-nav">*/
-/*               {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}*/
-/*               <li><a class="nav-link" href="{{ path('RencontrePublic_new') }}">{{ 'Créer une rencontre'|trans({}, 'FOSUserBundle') }}</a></li>*/
-/*               <li><a class="nav-link" href="{{ path('RencontrePublic_show') }}">{{ 'Participer à une rencontre'|trans({}, 'FOSUserBundle') }}</a></li>*/
-/*               {% else %}*/
-/*               <li><a class="nav-link" href="{{ path('RencontrePublic_show') }}">{{ 'Participer à une rencontre'|trans({}, 'FOSUserBundle') }}</a></li>*/
-/*               {% endif %}*/
+/*             <li class="dropdown">*/
+/*               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rencontre<span class="caret"></span></a>*/
+/*                 <ul class="dropdown-menu">*/
+/*                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}*/
+/*                 <li><a class="nav-link" href="{{ path('RencontrePublic_new') }}">{{ 'Créer une rencontre'|trans({}, 'FOSUserBundle') }}</a></li>*/
+/*                 {% endif %}*/
+/*                 <li><a class="nav-link" href="{{ path('RencontrePublic_show') }}">{{ 'Participer à une rencontre'|trans({}, 'FOSUserBundle') }}</a></li>*/
 /*               </ul>*/
+/*               </li>*/
+/*             </ul>*/
+/* */
 /* */
 /* */
 /*           </div>*/
@@ -422,9 +413,6 @@ class __TwigTemplate_1a186487034b3187a376330cfd7c6fbb8a05e66d49d3029d2d37fa58360
 /*             <a class="nav-link"*/
 /*             href="{{ path('fos_user_registration_register') }}">{{ 'Inscription'|trans({}, 'FOSUserBundle') }}</a>*/
 /*           -->*/
-/*           <li class="nav-item">*/
-/*             <a href="{{ path('RencontrePublic_show') }}" role="button"><i class="fa fa-edit" aria-hidden="true"></i> Participer à une rencontre </a>*/
-/*           </li>*/
 /*           {% endif %}*/
 /*         </li>*/
 /* */
