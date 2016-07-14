@@ -26,15 +26,10 @@ class UserType extends AbstractType
             ->add('sport')
             ->add('description' )
             ->add('recherche' , ChoiceType::class,   array(
-                "choices" => array(
-                    "Sélectionner dans la liste" =>"Sélectionner dans la liste",
-                    "une femme qui recherche un homme" =>"une femme qui recherche un homme",
-                "un homme qui recherche une femme" =>"un homme qui recherche une femme",
-                "une femme qui recherche une femme" =>"une femme qui recherche une femme",
-                "un homme qui recherche un homme" =>"un homme qui recherche un homme",
-                "un homme qui recherche un homme et/ou une femme" =>"un homme qui recherche un homme et/ou une femme",
-                                "une femme qui recherche un homme et/ou une femme" =>"une femme qui recherche un homme et/ou une femme",
-                                "relation amical"=>"relation amical",
+                "choices" => array("une femme " =>"une femme ","un homme " =>"un homme ",
+                                   "un homme et/ou une femme" =>"un homme et/ou une femme",
+                                   "relation amicale" =>"relation amicale",
+                                   "mystère !"=>"mystère !",
                 ) ))
         ;
     }

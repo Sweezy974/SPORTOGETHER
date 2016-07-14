@@ -205,3 +205,20 @@ p a {
 
   color: white;
 }
+
+.error{
+  color: red;
+font-weight: bolder;
+}
+
+.form-control{
+  text-align: center;
+}
+
+form div {
+  text-align: center;
+}
+
+select{
+  text-align: center;
+}
