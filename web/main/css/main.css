@@ -1,5 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald|Exo+2|Racing+Sans+One|Text+Me+One|Akronim|Mogra&subset=latin,latin-ext);
+
 body {
-  background-color: #f5f8fa; }
+  background-color: #f5f8fa;
+  font-family: "Text Me One";
+
+}
 
 #showDons, #newDons, #profil, #registrationConfirmerd, #showDonsAfterCreate, #notification, #reponseDon {
   margin-top: 80px; }

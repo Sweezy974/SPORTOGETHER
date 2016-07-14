@@ -16,7 +16,7 @@ class DefaultController extends Controller
       $user = $em->getRepository('sportogetherBundle:User')->findAll();
 
 
-        return $this->render('liste-membre.html.twig', array(
+        return $this->render('accueil.html.twig', array(
           'user' => $user,
         ));
 
