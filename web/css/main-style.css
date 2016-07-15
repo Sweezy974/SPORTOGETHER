@@ -143,6 +143,14 @@ html {
     -o-background-size: cover;
     background-size: cover;
 }
+
+.item:nth-child(10) {
+    background: url('../img/workout10.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 .carousel {
     z-index: -99;
 }
