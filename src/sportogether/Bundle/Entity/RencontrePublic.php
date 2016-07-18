@@ -21,6 +21,16 @@ class RencontrePublic
      */
     private $id;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sport", type="string", length=255)
+     */
+    private $sport;
+
+
+
     /**
      * @var string
      *
@@ -218,5 +228,29 @@ class RencontrePublic
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set sport
+     *
+     * @param string $sport
+     *
+     * @return RencontrePublic
+     */
+    public function setSport($sport)
+    {
+        $this->sport = $sport;
+
+        return $this;
+    }
+
+    /**
+     * Get sport
+     *
+     * @return string
+     */
+    public function getSport()
+    {
+        return $this->sport;
     }
 }

@@ -21,6 +21,16 @@ class RencontrePublic
      */
     private $id;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sport", type="string", length=255)
+     */
+    private $sport;
+
+
+
     /**
      * @var string
      *
