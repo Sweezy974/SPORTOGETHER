@@ -14,7 +14,7 @@ class RencontrePublicController extends Controller
   /**
   * Creates a new rencontrePublic entity.
   *
-  * @Route("/new/RencontrePublic", name="RencontrePublic_new")
+  * @Route("RencontrePublic/new/", name="RencontrePublic_new")
   * @Method({"GET", "POST"})
   */
   public function newAction(Request $request)
@@ -39,7 +39,7 @@ class RencontrePublicController extends Controller
   /**
   * Lists all Dons entities.
   *
-  * @Route("/show/RencontrePublic", name="RencontrePublic_show")
+  * @Route("RencontrePublic/show/", name="RencontrePublic_show")
   * @Method("GET")
   */
   public function indexAction()
@@ -57,7 +57,7 @@ class RencontrePublicController extends Controller
   /**
   * voir un groupe de rencontre.
   *
-  * @Route("/voir-rencontre/{id}", name="sportogether_details-rencontre")
+  * @Route("RencontrePublic/voir-rencontre/{id}", name="sportogether_details-rencontre")
   * @Method("GET")
   */
   public function voirRencontreAction($id)

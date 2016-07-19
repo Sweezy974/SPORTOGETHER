@@ -226,3 +226,17 @@ select{
 .chat1{
       background-color: rgba(96, 233, 255, 0.4);
 }
+
+.user{
+  padding-top: 5%;
+  padding-bottom: 5%;
+
+}
+
+.user :hover{
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: aquamarine;
+  border-bottom: 1px black;
+
+}

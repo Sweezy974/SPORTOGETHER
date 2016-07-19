@@ -31,6 +31,13 @@ class RencontrePublic
     /**
      * @var string
      *
+     * @ORM\Column(name="sport", type="string", length=255)
+     */
+    private $sport;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;

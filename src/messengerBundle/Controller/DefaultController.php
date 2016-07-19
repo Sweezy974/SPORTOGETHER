@@ -15,7 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/messages",name="messenger_messages")
+     * @Route("/messages/",name="messenger_messages")
      * @Method({"POST", "GET"})
      */
 
