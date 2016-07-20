@@ -4,11 +4,16 @@
 
 {% block fos_user_content %}
 <form class="col-md-offset-3 col-md-6 text-center">
-  <h3>{{ rencontrePublic.nomGroupe }}</h3>
-  <h3>{{ rencontrePublic.sport }}</h3>
-  <h3>{{ rencontrePublic.description }}</h3>
-  <h3>{{ rencontrePublic.lieu }}</h3>
-  <h3>{{ rencontrePublic.date|date("d/m/Y")}}</h3>
+  <h3 style="text-transform:uppercase;">nom groupe</h3>
+  <h4>{{ rencontrePublic.nomGroupe }}</h4>
+  <h3 style="text-transform:uppercase;">sport</h3>
+  <h4>{{ rencontrePublic.sport }}</h4>
+  <h3 style="text-transform:uppercase;">description</h3>
+  <h4>{{ rencontrePublic.description }}</h4>
+  <h3 style="text-transform:uppercase;">lieu</h4>
+  <h4>{{ rencontrePublic.lieu }}</h4>
+  <h3 style="text-transform:uppercase;">date</h3>
+  <h4>{{ rencontrePublic.date|date("d/m/Y")}}</h4>
   <div class="col-md-12 text-center">
     <a href= "{{ path ('sportogether_join-rencontre' ,{'id': rencontrePublic.id}) }}"><button class="btn-primary" type="button" name="button">Participer à la rencontre</button></a>
   </div>
