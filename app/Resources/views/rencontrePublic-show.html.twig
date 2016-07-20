@@ -14,8 +14,7 @@
       <h4 class="col-md-2">description </h4>
       <h4 class="col-md-2">Lieu </h4>
       <h4 class="col-md-2">Date </h4>
-      <h4 class="col-md-1"><i class="fa fa-users"></i></h4>
-      <h4 class="col-md-1"><i class="fa fa-child"></i></h4>
+      <h4 class="col-md-2"><i class="fa fa-child"></i></h4>
 
 
 
@@ -27,8 +26,7 @@
       <div class="col-md-2">{{ rencontrePublic.description }}</div>
       <div class="col-md-2">{{ rencontrePublic.lieu }}</div>
       <div class="col-md-2">{{ rencontrePublic.date|date("d/m/Y")}}</div>
-      <div class="col-md-1"><a href="/voir-rencontre/{id}">MEMBRES</a></div>
-      <div class="col-md-1"><a href="/voir-rencontre/{id}">PARTICIPER</a></div>
+      <div class="col-md-2"><a href= "{{ path ('sportogether_details-rencontre' ,{'id': rencontrePublic.id}) }}">PARTICIPER</a></div>
 
 
       {% endfor %}

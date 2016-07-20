@@ -9,91 +9,92 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
  */
-class User extends BaseUser
-{
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
+ class User extends BaseUser
+ {
+     /**
+      * @ORM\Id
+      * @ORM\Column(type="integer")
+      * @ORM\GeneratedValue(strategy="AUTO")
+      */
+     protected $id;
 
-    /**
-  * @var string
+     /**
+      * @Orm\OneToMany(targetEntity="messengerBundle\Entity\message", mappedBy="emetteur")
+      */
+     private $messageEmetteur;
+
+         /**
+          * @Orm\OneToMany(targetEntity="messengerBundle\Entity\message", mappedBy="recepteur")
+          */
+         private $messageRecepteur;
+
+     /**
+   * @var string
+   *
+   * @ORM\Column(name="Nom", type="string", length=255)
+   */
+   private $nom;
+
+   /**
+ * @var string
+ *
+ * @ORM\Column(name="Prenom", type="string", length=255)
+ */
+ private $prenom;
+
+ /**
+ * @var date
+ *
+ * @ORM\Column(name="Age", type="date")
+ */
+ private $age;
+
+ /**
+ * @var string
+ *
+ * @ORM\Column(name="Adresse", type="string", length=255)
+ */
+ private $adresse;
+ /**
+ * @var string
+ *
+ * @ORM\Column(name="Telephone", type="string", length=255)
+ */
+ private $telephone;
+
+ /**
+ * @var string
+ *
+ * @ORM\Column(name="Sexe", type="string", length=255)
+ */
+ private $sexe;
+
+ /**
+ * @var string
+ *
+ * @ORM\Column(name="Sport", type="string", length=255)
+ */
+
+ private $sport;
+ /**
+ * @var text
+ *
+ * @ORM\Column(name="Description", type="text")
+ */
+ private $description;
+
+ /**
+ * @var string
+ *
+ * @ORM\Column(name="Recherche ", type="string")
+ */
+ private $recherche;
+
+ /**
+ * @ORM\OneToMany(targetEntity="RencontrePublic", mappedBy="user")
   *
-  * @ORM\Column(name="Nom", type="string", length=255)
-  */
-  private $nom;
-
-  /**
-* @var string
-*
-* @ORM\Column(name="Prenom", type="string", length=255)
-*/
-private $prenom;
-
-/**
-* @var date
-*
-* @ORM\Column(name="Age", type="date")
-*/
-private $age;
-
-/**
-* @var string
-*
-* @ORM\Column(name="Adresse", type="string", length=255)
-*/
-private $adresse;
-/**
-* @var string
-*
-* @ORM\Column(name="Telephone", type="string", length=255)
-*/
-private $telephone;
-
-/**
-* @var string
-*
-* @ORM\Column(name="Sexe", type="string", length=255)
-*/
-private $sexe;
-
-/**
-* @var string
-*
-* @ORM\Column(name="Sport", type="string", length=255)
-*/
-
-private $sport;
-/**
-* @var text
-*
-* @ORM\Column(name="Description", type="text")
-*/
-private $description;
-
-/**
-* @var string
-*
-* @ORM\Column(name="Recherche ", type="string")
-*/
-private $recherche;
-
-/**
-* @ORM\OneToMany(targetEntity="User", mappedBy="rencontrePublic")
- * @ORM\JoinColumn(name="rencontrePublic_id", referencedColumnName="id")
-*/
-
-private $rencontrePublic;
-
-
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
-
+ */
+ private $rencontrePublic;
 
 
     /**
@@ -264,7 +265,29 @@ private $rencontrePublic;
         return $this->sport;
     }
 
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return User
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
 
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 
     /**
      * Set recherche
@@ -291,37 +314,81 @@ private $rencontrePublic;
     }
 
     /**
-     * Set description
+     * Add messageEmetteur
      *
-     * @param string $description
+     * @param \messengerBundle\Entity\message $messageEmetteur
      *
      * @return User
      */
-    public function setDescription($description)
+    public function addMessageEmetteur(\messengerBundle\Entity\message $messageEmetteur)
     {
-        $this->description = $description;
+        $this->messageEmetteur[] = $messageEmetteur;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Remove messageEmetteur
      *
-     * @return string
+     * @param \messengerBundle\Entity\message $messageEmetteur
      */
-    public function getDescription()
+    public function removeMessageEmetteur(\messengerBundle\Entity\message $messageEmetteur)
     {
-        return $this->description;
+        $this->messageEmetteur->removeElement($messageEmetteur);
+    }
+
+    /**
+     * Get messageEmetteur
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMessageEmetteur()
+    {
+        return $this->messageEmetteur;
+    }
+
+    /**
+     * Add messageRecepteur
+     *
+     * @param \messengerBundle\Entity\message $messageRecepteur
+     *
+     * @return User
+     */
+    public function addMessageRecepteur(\messengerBundle\Entity\message $messageRecepteur)
+    {
+        $this->messageRecepteur[] = $messageRecepteur;
+
+        return $this;
+    }
+
+    /**
+     * Remove messageRecepteur
+     *
+     * @param \messengerBundle\Entity\message $messageRecepteur
+     */
+    public function removeMessageRecepteur(\messengerBundle\Entity\message $messageRecepteur)
+    {
+        $this->messageRecepteur->removeElement($messageRecepteur);
+    }
+
+    /**
+     * Get messageRecepteur
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMessageRecepteur()
+    {
+        return $this->messageRecepteur;
     }
 
     /**
      * Add rencontrePublic
      *
-     * @param \sportogether\Bundle\Entity\User $rencontrePublic
+     * @param \sportogether\Bundle\Entity\RencontrePublic $rencontrePublic
      *
      * @return User
      */
-    public function addRencontrePublic(\sportogether\Bundle\Entity\User $rencontrePublic)
+    public function addRencontrePublic(\sportogether\Bundle\Entity\RencontrePublic $rencontrePublic)
     {
         $this->rencontrePublic[] = $rencontrePublic;
 
@@ -331,9 +398,9 @@ private $rencontrePublic;
     /**
      * Remove rencontrePublic
      *
-     * @param \sportogether\Bundle\Entity\User $rencontrePublic
+     * @param \sportogether\Bundle\Entity\RencontrePublic $rencontrePublic
      */
-    public function removeRencontrePublic(\sportogether\Bundle\Entity\User $rencontrePublic)
+    public function removeRencontrePublic(\sportogether\Bundle\Entity\RencontrePublic $rencontrePublic)
     {
         $this->rencontrePublic->removeElement($rencontrePublic);
     }

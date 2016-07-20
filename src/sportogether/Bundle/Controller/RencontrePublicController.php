@@ -87,24 +87,22 @@ class RencontrePublicController extends Controller
   * @Route("/rejoindre-rencontre/{id}", name="sportogether_join-rencontre")
   * @Method("GET")
   */
+
   public function joinAction(RencontrePublic $rencontrePublic)
-  {
+   {
 
-    $em = $this->getDoctrine()->getManager();
-    $rencontrePublic = $em->getRepository('sportogetherBundle:RencontrePublic')->findOneById($id);
+     $em = $this->getDoctrine()->getManager();
+     $rencontrePublic = $em->getRepository('sportogetherBundle:RencontrePublic')->findOneById($id);
 
-    $userLogged = $this->getUser();
-    $userId = $userLogged->getId();
+     $userLogged = $this->getUser();
+     $userId = $userLogged->getId();
 
-    // $rejoindre->addrejoindre($userLogged);
+     $em->persist($userId);
+     $em->flush();
 
-    //     $em = $this->getDoctrine()->getManager();
-    //     $em->persist($don);
-    //     $em->flush();
-
-    return $this->render('rencontrePublic-show.html.twig',
-    array("rencontrePublic"=>$rencontrePublic));
-  }
+     return $this->render('rencontrePublic-detail.html.twig',
+     array("rencontrePublic"=>$rencontrePublic));
+   }
 
 
 

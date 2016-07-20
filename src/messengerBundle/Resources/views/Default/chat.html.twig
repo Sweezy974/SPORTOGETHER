@@ -105,24 +105,25 @@
   <div class="container-fluid" style="margin-top:3%;">
   <div class="row">
     <div class="col-sm-3 col-lg-2 col-sm-push-9 col-lg-push-10">
-      <nav class="navbar navbar-default navbar-fixed-side">
+      <nav class="navbar navbar-default navbar-fixed-side" style="margin-top:1%">
         <!-- normal collapsable navbar markup -->
         <!--user-->
-        <a href="#">
-          <div class="col-md-12 user">
-
-          utilisateur
-
+        {% for user in users %}
+        <a href="{{ path('messenger_messages', { 'recepteur': user.id}) }}">
+        <div class="user col-md-12">
+           <img src="" alt="img" /> {{user.nom}}
         </div>
+      </a>
+        {% endfor %}
         <!-- fin user -->
 
 
       </a>
       </nav>
     </div>
-    <div class="col-sm-9 col-lg-10 col-sm-pull-3 col-lg-pull-2">
+    <div class="col-sm-9 col-lg-10 col-sm-pull-3 col-lg-pull-2"style="margin-top:2%;">
       <!-- your page content -->
-            <div class="col-md-12" style="padding-top:2%;height:70%;overflow:auto;border:1px solid skyblue;padding:2%">
+            <div class="col-md-12" style="padding-top:2%;height:65%;overflow:auto;border:1px solid skyblue;padding:2%">
 
 
 
@@ -138,8 +139,8 @@
         {% endfor %}
       </div>
 
-                    <div class="bottom col-md-12">
-                    {{ form_start(form) }}
+                    <div class="bulle col-md-12">
+                    {{ form_start(form, { 'attr':{'class':'bulle'} }) }}
                     <div class="field field-area" >
                       {{ form_widget(form.message, { 'attr':{'class':'field-input field-textarea col-md-12 '} }) }}
                     </div>

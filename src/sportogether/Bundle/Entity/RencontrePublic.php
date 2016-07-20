@@ -43,8 +43,7 @@ class RencontrePublic
     private $description;
 
     /**
-    * @ORM\ManyToOne(targetEntity="User", inversedBy="RencontrePublic")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+    * @ORM\ManyToOne(targetEntity="User", inversedBy="rencontrePublic")
     */
 
     private $user;
@@ -69,8 +68,6 @@ class RencontrePublic
      * @ORM\Column(name="heure", type="time")
      */
     private $heure;
-
-
 
 
     /**
@@ -105,6 +102,30 @@ class RencontrePublic
     public function getNomGroupe()
     {
         return $this->nomGroupe;
+    }
+
+    /**
+     * Set sport
+     *
+     * @param string $sport
+     *
+     * @return RencontrePublic
+     */
+    public function setSport($sport)
+    {
+        $this->sport = $sport;
+
+        return $this;
+    }
+
+    /**
+     * Get sport
+     *
+     * @return string
+     */
+    public function getSport()
+    {
+        return $this->sport;
     }
 
     /**
@@ -225,29 +246,5 @@ class RencontrePublic
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * Set sport
-     *
-     * @param string $sport
-     *
-     * @return RencontrePublic
-     */
-    public function setSport($sport)
-    {
-        $this->sport = $sport;
-
-        return $this;
-    }
-
-    /**
-     * Get sport
-     *
-     * @return string
-     */
-    public function getSport()
-    {
-        return $this->sport;
     }
 }
