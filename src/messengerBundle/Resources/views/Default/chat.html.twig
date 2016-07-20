@@ -1,23 +1,182 @@
-{% include "FOSUserBundle::layout.html.twig" %}
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('main/css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('css/main-style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/navbar-fixed-side.css')}}" rel="stylesheet" />
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="container container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-<div class="container">
+        <div class="row">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{{ path('accueil') }}">SPORTOGETHER <span class="sr-only">(current)</span></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rencontre<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a class="nav-link" href="{{ path('RencontrePublic_new') }}">{{ 'Créer une rencontre'|trans({}, 'FOSUserBundle') }}</a></li>
+                {% endif %}
+                <li><a class="nav-link" href="{{ path('RencontrePublic_show') }}">{{ 'Participer à une rencontre'|trans({}, 'FOSUserBundle') }}</a></li>
+              </ul>
+              </li>
+            </ul>
 
 
-  {% for messages in message %}
-  <form class="chat1 col-md-offset-6 col-md-4 ">
 
-    <h4 class="col-md-12 text-left container"><p class="col-md-12">{{messages.message}}</p> </h4>
-    <div class="col-md-12 text-right container">{{ "now"|date("D M Y    h:i:s") }}</div>
-  </form>
+          </div>
+        </div>
+        <!-- Brand and toggle get grouped for better mobile display -->
 
-  {% endfor %}
 
-  <div class="bottom col-md-12">
-  {{ form_start(form) }}
-  <div class="field field-area" >
-    {{ form_widget(form.message, { 'attr':{'class':'field-input field-textarea col-md-12 '} }) }}
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+          <ul class="nav navbar-nav navbar-right" >
+
+            <li class="nav-item">
+              {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+              <a href="{{path('messenger_messages') }}">Messenger</a>
+
+
+
+            {% else %}
+            <!--
+            <a class="nav-link"
+            href="{{ path('fos_user_registration_register') }}">{{ 'Inscription'|trans({}, 'FOSUserBundle') }}</a>
+          -->
+          {% endif %}
+        </li>
+
+        <li class="nav-item">
+          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+          <a class="nav-link" href="{{ path('fos_user_profile_show') }}">
+          Connecté en tant que: {{ app.user.username }}</a>
+
+
+
+            {% else %}
+            <a class="nav-link"
+            href="{{ path('fos_user_security_login') }}">{{ 'Connexion'|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}
+          </li>
+          <li class="nav-item">
+
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <a class="nav-link"
+            href="{{ path('fos_user_security_logout') }}">
+            {{ 'Se deconnecter'|trans({}, 'FOSUserBundle') }}
+          </a>
+          {% else %}
+          <!--
+          <a class="nav-link"
+          href="{{ path('fos_user_registration_register') }}">{{ 'Inscription'|trans({}, 'FOSUserBundle') }}</a>
+        -->
+        <li class="nav-item">
+          <a href="/register" role="button"><i class="fa fa-edit" aria-hidden="true"></i> Inscription</a>
+        </li>
+        {% endif %}
+      </li>
+
+
+
+
+    </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <!-- RIGHT SIDE -->
+  <div class="container-fluid" style="margin-top:3%;">
+  <div class="row">
+    <div class="col-sm-3 col-lg-2 col-sm-push-9 col-lg-push-10">
+      <nav class="navbar navbar-default navbar-fixed-side" style="margin-top:1%">
+        <!-- normal collapsable navbar markup -->
+        <!--user-->
+        {% for user in users %}
+        <a href="{{ path('messenger_messages', { 'recepteur': user.id}) }}">
+        <div class="user col-md-12">
+           <img src="" alt="img" /> {{user.nom}}
+        </div>
+      </a>
+        {% endfor %}
+        <!-- fin user -->
+
+
+      </a>
+      </nav>
+    </div>
+    <div class="col-sm-9 col-lg-10 col-sm-pull-3 col-lg-pull-2"style="margin-top:2%;">
+      <!-- your page content -->
+            <div class="col-md-12" style="padding-top:2%;height:65%;overflow:auto;border:1px solid skyblue;padding:2%">
+
+
+
+        {% for messages in message %}
+        <form class="chat1 col-md-3 ">
+
+          <h4 class="col-md-12 text-left container"><p class="col-md-12">{{messages.message}}</p> </h4>
+          <div class="col-md-12 text-right container">{{ "now"|date("D M Y    h:i:s") }}</div>
+        </form>
+        <div class="row">
+        </div>
+
+        {% endfor %}
+      </div>
+
+                    <div class="bulle col-md-12">
+                    {{ form_start(form, { 'attr':{'class':'bulle'} }) }}
+                    <div class="field field-area" >
+                      {{ form_widget(form.message, { 'attr':{'class':'field-input field-textarea col-md-12 '} }) }}
+                    </div>
+                    {{form_end(form)}}
+                  </div>
+
+
+      </div>
+    </div>
   </div>
-  {{form_end(form)}}
 </div>
 
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block javascript %}
+<script src="{{asset('bootstrap/js/bootstrap.min.js')}}" charset="utf-8"></script>
+<script src="{{asset('bootstrap/js/jquery-2.1.4.js')}}" charset="utf-8"></script>
+<script src="{{asset('bootstrap/js/jquery.js')}}" charset="utf-8"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="{{asset('js/script.js')}}"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
+{% endblock %}

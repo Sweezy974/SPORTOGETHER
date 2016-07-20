@@ -20,6 +20,12 @@ class RencontrePublicType extends AbstractType
         $builder
             ->add('nomGroupe')
             ->add('description')
+            ->add('sport', ChoiceType::class,   array("choices" => array("football" =>"football","volley-ball" =>"volley-ball",
+                                                                         "rugby" =>"rugby","hand-ball" =>"hand-ball",
+                                                                         "kanoe-kayak" =>"kanoe-kayak","tennis" =>"tennis",
+                                                                         "la pousse" =>"la pousse","boxe" =>"boxe",
+                                                                         "cyclisme" =>"cyclisme","parapente" =>"parapente",
+                                                                         "course" =>"course")))
             ->add('lieu')
             ->add('date', DateType::class, array('years' => range(2016,2017),))
             ->add('heure',TimeType::class)

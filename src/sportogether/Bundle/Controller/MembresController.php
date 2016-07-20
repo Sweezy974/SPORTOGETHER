@@ -15,7 +15,7 @@ class MembresController extends Controller
   /**
  * Lists all Dons entities.
  *
- * @Route("/show/membres", name="liste_membres")
+ * @Route("membres/show/", name="liste_membres")
  * @Method("GET")
  */
  public function indexAction()

@@ -3,6 +3,7 @@
 namespace messengerBundle\Controller;
 
 use messengerBundle\Entity\message;
+use sportogether\Bundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -15,39 +16,43 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/messages",name="messenger_messages")
-     * @Method({"POST", "GET"})
-     */
+    * @Route("/messages/{recepteur}",name="messenger_messages")
+    * @Method({"POST", "GET"})
+    */
+    public function sendMessageAction(Request $request,$recepteur=null)
+    {
+        //envoyer message
+        $message = new message();
+        $emetteur = $this ->getUser();
+        $message->setDate(new \DateTime());
+        $form = $this->createFormBuilder($message)
+        ->add('message',TextType::Class)
+        ->add('envoyer',SubmitType::Class)
 
-     public function sendMessageAction(Request $request)
-     {
-//envoyer message
-       $message = new message();
-       $message->setDate(new \DateTime());
-       $form = $this->createFormBuilder($message)
-       ->add('message',TextType::Class)
+        ->getForm();
+        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('sportogetherBundle:User')->findAll();
 
-       ->add('envoyer',SubmitType::Class)
+        if ($form->isSubmitted() && $form->isValid()) {
+            $recepteur = $em->getRepository('sportogetherBundle:User')->findOneById($recepteur);
+            $message->setEmetteur($emetteur)->setRecepteur($recepteur);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($message);
+            $em->flush();
 
-       ->getForm();
-       $form->handleRequest($request);
-       if ($form->isSubmitted() && $form->isValid()) {
-         $em = $this->getDoctrine()->getManager();
-         $em->persist($message);
-         $em->flush();
+            // afficher message
+            $message = $em->getRepository('messengerBundle:message')->findAll();
+        }
+        return $this->render('messengerBundle:Default:chat.html.twig', array(
 
-         // afficher message
-         $em = $this->getDoctrine()->getManager();
-         $message = $em->getRepository('messengerBundle:message')->findAll();
-       }
-       return $this->render('messengerBundle:Default:chat.html.twig', array(
+            'form' => $form->createView(),
+            'message' => $message,
+            'users'=>$users
+        ));
 
-         'form' => $form->createView(),
-         'message' => $message
-       ));
-       // supprimer message
 
-     }
+    }
 
 
 }
