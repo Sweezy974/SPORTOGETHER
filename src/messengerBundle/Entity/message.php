@@ -35,10 +35,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 
      /**
-      * @var string
-      *
-      * @ORM\Column(name="message", type="string", length=255)
-      */
+     * @var text
+     *
+     * @ORM\Column(name="message", type="text")
+     */
      private $message;
 
      /**
@@ -59,29 +59,7 @@ use Doctrine\ORM\Mapping as ORM;
         return $this->id;
     }
 
-    /**
-     * Set message
-     *
-     * @param string $message
-     *
-     * @return message
-     */
-    public function setMessage($message)
-    {
-        $this->message = $message;
 
-        return $this;
-    }
-
-    /**
-     * Get message
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->message;
-    }
 
     /**
      * Set date
@@ -153,5 +131,29 @@ use Doctrine\ORM\Mapping as ORM;
     public function getRecepteur()
     {
         return $this->recepteur;
+    }
+
+    /**
+     * Set message
+     *
+     * @param string $message
+     *
+     * @return message
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
     }
 }
