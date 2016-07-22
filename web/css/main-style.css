@@ -249,3 +249,8 @@ select{
   margin-bottom: 0%;
   color: red;
 }
+
+strong {
+    font-weight: 200;
+    color: crimson;
+}

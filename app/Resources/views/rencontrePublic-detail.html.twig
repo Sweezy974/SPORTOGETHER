@@ -17,6 +17,10 @@
   <div class="col-md-12 text-center">
     <a href= "{{ path ('sportogether_join-rencontre' ,{'id': rencontrePublic.id}) }}"><button class="btn-primary" type="button" name="button">Participer à la rencontre</button></a>
   </div>
+  <p>Ils participent aussi à cette rencontre :</p>
+  {% for rencontrePublic in rencontrePublic %}
+  <p>{{ rencontrePublic.username }} ,</p>
+  {% endfor %}
 
 </form>
 

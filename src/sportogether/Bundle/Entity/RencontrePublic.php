@@ -49,6 +49,12 @@ class RencontrePublic
     private $user;
 
     /**
+    * @ORM\ManyToMany(targetEntity="User", inversedBy="rencontrePublic")
+    */
+
+    private $membres;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="lieu", type="string", length=255)
@@ -246,5 +252,46 @@ class RencontrePublic
     public function getUser()
     {
         return $this->user;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->membres = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add membre
+     *
+     * @param \sportogether\Bundle\Entity\User $membre
+     *
+     * @return RencontrePublic
+     */
+    public function addMembre(\sportogether\Bundle\Entity\User $membre)
+    {
+        $this->membres[] = $membre;
+
+        return $this;
+    }
+
+    /**
+     * Remove membre
+     *
+     * @param \sportogether\Bundle\Entity\User $membre
+     */
+    public function removeMembre(\sportogether\Bundle\Entity\User $membre)
+    {
+        $this->membres->removeElement($membre);
+    }
+
+    /**
+     * Get membres
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMembres()
+    {
+        return $this->membres;
     }
 }

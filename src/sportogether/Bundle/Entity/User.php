@@ -91,7 +91,7 @@ use Doctrine\ORM\Mapping as ORM;
  private $recherche;
 
  /**
- * @ORM\OneToMany(targetEntity="RencontrePublic", mappedBy="user")
+ * @ORM\ManyToMany(targetEntity="RencontrePublic", mappedBy="membres")
   *
  */
  private $rencontrePublic;

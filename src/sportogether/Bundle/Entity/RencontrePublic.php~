@@ -49,6 +49,12 @@ class RencontrePublic
     private $user;
 
     /**
+    * @ORM\ManyToMany(targetEntity="User", inversedBy="rencontrePublic")
+    */
+
+    private $membres;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="lieu", type="string", length=255)
@@ -69,4 +75,182 @@ class RencontrePublic
      */
     private $heure;
 
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nomGroupe
+     *
+     * @param string $nomGroupe
+     *
+     * @return RencontrePublic
+     */
+    public function setNomGroupe($nomGroupe)
+    {
+        $this->nomGroupe = $nomGroupe;
+
+        return $this;
+    }
+
+    /**
+     * Get nomGroupe
+     *
+     * @return string
+     */
+    public function getNomGroupe()
+    {
+        return $this->nomGroupe;
+    }
+
+    /**
+     * Set sport
+     *
+     * @param string $sport
+     *
+     * @return RencontrePublic
+     */
+    public function setSport($sport)
+    {
+        $this->sport = $sport;
+
+        return $this;
+    }
+
+    /**
+     * Get sport
+     *
+     * @return string
+     */
+    public function getSport()
+    {
+        return $this->sport;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return RencontrePublic
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set lieu
+     *
+     * @param string $lieu
+     *
+     * @return RencontrePublic
+     */
+    public function setLieu($lieu)
+    {
+        $this->lieu = $lieu;
+
+        return $this;
+    }
+
+    /**
+     * Get lieu
+     *
+     * @return string
+     */
+    public function getLieu()
+    {
+        return $this->lieu;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return RencontrePublic
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set heure
+     *
+     * @param \DateTime $heure
+     *
+     * @return RencontrePublic
+     */
+    public function setHeure($heure)
+    {
+        $this->heure = $heure;
+
+        return $this;
+    }
+
+    /**
+     * Get heure
+     *
+     * @return \DateTime
+     */
+    public function getHeure()
+    {
+        return $this->heure;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \sportogether\Bundle\Entity\User $user
+     *
+     * @return RencontrePublic
+     */
+    public function setUser(\sportogether\Bundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \sportogether\Bundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

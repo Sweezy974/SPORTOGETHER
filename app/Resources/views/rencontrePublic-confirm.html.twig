@@ -1,0 +1,14 @@
+{% include "FOSUserBundle::layout.html.twig" %}
+
+<form class="col-md-offset-2 col-md-8 text-center">
+  <h3>Féliciations vous êtes maintenant inscrit pour la rencontre <strong>{{ rencontrePublic.nomGroupe }}</strong> !</h3>
+  <h3>Prévue pour le  <strong>{{ rencontrePublic.date|date("d/m/Y")}}</strong> vers <strong>{{ rencontrePublic.heure|date("h:i:s")}}</strong>  à <strong>{{ rencontrePublic.lieu }}</strong>!</h3>
+  <p>Ils participent aussi à cette rencontre :</p>
+  {% for rencontrePublic in rencontrePublic %}
+  <p>{{ rencontrePublic.user }} ,</p>
+  {% endfor %}
+</form>
+
+<div class="col-md-12 text-center">
+  <a href="{{ path('RencontrePublic_show') }}"><button class="btn-primary" type="button" name="button">Retour Rencontre Public</button></a>
+</div>
