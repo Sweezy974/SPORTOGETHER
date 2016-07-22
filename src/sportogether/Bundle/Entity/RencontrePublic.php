@@ -42,17 +42,17 @@ class RencontrePublic
      */
     private $description;
 
-    /**
-    * @ORM\ManyToOne(targetEntity="User", inversedBy="rencontrePublic")
-    */
-
-    private $user;
 
     /**
     * @ORM\ManyToMany(targetEntity="User", inversedBy="rencontrePublic")
     */
+    private $user;
 
-    private $membres;
+
+    /**
+    * @ORM\ManyToOne(targetEntity="User", inversedBy="rencontreCreee")
+    */
+    private $createur;
 
     /**
      * @var string
@@ -275,23 +275,52 @@ class RencontrePublic
         return $this;
     }
 
+
     /**
-     * Remove membre
+     * Add user
      *
-     * @param \sportogether\Bundle\Entity\User $membre
+     * @param \sportogether\Bundle\Entity\User $user
+     *
+     * @return RencontrePublic
      */
-    public function removeMembre(\sportogether\Bundle\Entity\User $membre)
+    public function addUser(\sportogether\Bundle\Entity\User $user)
     {
-        $this->membres->removeElement($membre);
+        $this->user[] = $user;
+
+        return $this;
     }
 
     /**
-     * Get membres
+     * Remove user
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @param \sportogether\Bundle\Entity\User $user
      */
-    public function getMembres()
+    public function removeUser(\sportogether\Bundle\Entity\User $user)
     {
-        return $this->membres;
+        $this->user->removeElement($user);
+    }
+
+    /**
+     * Set createur
+     *
+     * @param \sportogether\Bundle\Entity\User $createur
+     *
+     * @return RencontrePublic
+     */
+    public function setCreateur(\sportogether\Bundle\Entity\User $createur = null)
+    {
+        $this->createur = $createur;
+
+        return $this;
+    }
+
+    /**
+     * Get createur
+     *
+     * @return \sportogether\Bundle\Entity\User
+     */
+    public function getCreateur()
+    {
+        return $this->createur;
     }
 }

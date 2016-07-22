@@ -14,7 +14,7 @@ class RencontrePublicController extends Controller
   /**
   * Creates a new rencontrePublic entity.
   *
-  * @Route("RencontrePublic/rencontre/new/", name="RencontrePublic_new")
+  * @Route("RencontrePublic/new/", name="RencontrePublic_new")
   * @Method({"GET", "POST"})
   */
   public function newAction(Request $request)
@@ -22,10 +22,12 @@ class RencontrePublicController extends Controller
     $rencontrePublic = new RencontrePublic();
     $form = $this->createForm('sportogether\Bundle\Form\RencontrePublicType', $rencontrePublic);
     $form->handleRequest($request);
-    $userId = $this->getUser();
-    $userId->getId();
-    $rencontrePublic->setUser($userId);
+
+    $user = $this->getUser();
+    $rencontrePublic->setCreateur($user);
+
     if ($form->isSubmitted() && $form->isValid()) {
+
       $em = $this->getDoctrine()->getManager();
       $em->persist($rencontrePublic);
       $em->flush();
@@ -37,9 +39,9 @@ class RencontrePublicController extends Controller
     ));
   }
   /**
-  * Lists all Dons entities.
+  * Lister les rencontres.
   *
-  * @Route("RencontrePublic/rencontre/show/", name="RencontrePublic_show")
+  * @Route("RencontrePublic/show/", name="RencontrePublic_show")
   * @Method("GET")
   */
   public function indexAction()
@@ -57,7 +59,7 @@ class RencontrePublicController extends Controller
   /**
   * voir un groupe de rencontre.
   *
-  * @Route("RencontrePublic/rencontre/{id}/details", name="sportogether_details-rencontre")
+  * @Route("RencontrePublic/voir-rencontre/{id}", name="sportogether_details-rencontre")
   * @Method("GET")
   */
   public function voirRencontreAction($id)
@@ -72,22 +74,23 @@ class RencontrePublicController extends Controller
   }
 
 
-
   /**
   * Rejoindre un groupe de rencontre.
   *
-  * @Route("RencontrePublic/rencontre/{id}/join", name="sportogether_join-rencontre")
+  * @Route("/rejoindre-rencontre/{id}", name="sportogether_join-rencontre")
   * @Method("GET")
   */
 public function joinAction(RencontrePublic $rencontrePublic)
  {
-   $userId = $this->getUser();
-   $userId->getId();
-   $rencontrePublic->addMembre($userId);
-   $em = $this->getDoctrine()->getManager();
+
+    $em = $this->getDoctrine()->getManager();
+  //  $rencontrePublic = $em->getRepository('sportogetherBundle:RencontrePublic')->findOneById($id);
+
+   $participant = $this->getUser();
+   $rencontrePublic ->addUser($participant);
+
    $em->persist($rencontrePublic);
    $em->flush();
-
 
    return $this->render('rencontrePublic-confirm.html.twig',
    array("rencontrePublic"=>$rencontrePublic));
