@@ -22,9 +22,8 @@ class RencontrePublicController extends Controller
     $rencontrePublic = new RencontrePublic();
     $form = $this->createForm('sportogether\Bundle\Form\RencontrePublicType', $rencontrePublic);
     $form->handleRequest($request);
-    $userId = $this->getUser();
-    $userId->getId();
-    $rencontrePublic->setUser($userId);
+    $user = $this->getUser();
+    $rencontrePublic->setCreateur($user);
     if ($form->isSubmitted() && $form->isValid()) {
       $em = $this->getDoctrine()->getManager();
       $em->persist($rencontrePublic);
@@ -37,7 +36,7 @@ class RencontrePublicController extends Controller
     ));
   }
   /**
-  * Lists all Dons entities.
+  * Lister les rencontres existantes.
   *
   * @Route("RencontrePublic/show/", name="RencontrePublic_show")
   * @Method("GET")
@@ -55,7 +54,7 @@ class RencontrePublicController extends Controller
   }
 
   /**
-  * voir un groupe de rencontre.
+  * Voir les détails d'un groupe de rencontre.
   *
   * @Route("RencontrePublic/voir-rencontre/{id}", name="sportogether_details-rencontre")
   * @Method("GET")
@@ -78,22 +77,30 @@ class RencontrePublicController extends Controller
   * @Route("/rejoindre-rencontre/{id}", name="sportogether_join-rencontre")
   * @Method("GET")
   */
-public function joinAction(RencontrePublic $rencontrePublic)
- {
+  public function joinAction(RencontrePublic $rencontrePublic)
+  {
 
     $em = $this->getDoctrine()->getManager();
-  //  $rencontrePublic = $em->getRepository('sportogetherBundle:RencontrePublic')->findOneById($id);
+    //  $rencontrePublic = $em->getRepository('sportogetherBundle:RencontrePublic')->findOneById($id);
 
-   $userLogged = $this->getUser();
-   $userId = $userLogged->getId();
+    $participant = $this->getUser();
+    $rencontrePublic->addUser($participant);
 
-   $em->persist($userLogged);
-   $em->flush();
+    $em->persist($rencontrePublic);
 
-   return $this->render('rencontrePublic-confirm.html.twig',
-   array("rencontrePublic"=>$rencontrePublic));
- }
+    $em->flush();
+
+    return $this->render('rencontrePublic-confirm.html.twig',
+    array("rencontrePublic"=>$rencontrePublic));
+  }
 
 
+  /* Bloquer l'inscription au groupe de rencontre, une fois le nb max de participants atteint.
+  */
+
+  public function stopJoinAction(RencontrePublic $rencontrePublic)
+{
+  // SELECT COUNT(*) FROM rencontre_public_user_;
+}
 
 }

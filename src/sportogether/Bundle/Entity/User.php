@@ -86,15 +86,21 @@ use Doctrine\ORM\Mapping as ORM;
  /**
  * @var string
  *
- * @ORM\Column(name="Recherche ", type="string")
+ * @ORM\Column(name="Recherche", type="string", length=255)
  */
  private $recherche;
 
  /**
- * @ORM\OneToMany(targetEntity="RencontrePublic", mappedBy="user")
+ * @ORM\ManyToMany(targetEntity="RencontrePublic", mappedBy="user")
   *
  */
  private $rencontrePublic;
+
+ /**
+ * @ORM\OneToMany(targetEntity="RencontrePublic", mappedBy="createur")
+  *
+ */
+ private $rencontreCreee;
 
 
     /**
@@ -413,5 +419,39 @@ use Doctrine\ORM\Mapping as ORM;
     public function getRencontrePublic()
     {
         return $this->rencontrePublic;
+    }
+
+    /**
+     * Add rencontreCreee
+     *
+     * @param \sportogether\Bundle\Entity\RencontrePublic $rencontreCreee
+     *
+     * @return User
+     */
+    public function addRencontreCreee(\sportogether\Bundle\Entity\RencontrePublic $rencontreCreee)
+    {
+        $this->rencontreCreee[] = $rencontreCreee;
+
+        return $this;
+    }
+
+    /**
+     * Remove rencontreCreee
+     *
+     * @param \sportogether\Bundle\Entity\RencontrePublic $rencontreCreee
+     */
+    public function removeRencontreCreee(\sportogether\Bundle\Entity\RencontrePublic $rencontreCreee)
+    {
+        $this->rencontreCreee->removeElement($rencontreCreee);
+    }
+
+    /**
+     * Get rencontreCreee
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRencontreCreee()
+    {
+        return $this->rencontreCreee;
     }
 }
