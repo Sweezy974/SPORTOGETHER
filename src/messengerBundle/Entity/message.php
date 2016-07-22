@@ -23,15 +23,15 @@ use Doctrine\ORM\Mapping as ORM;
 
 
      /**
-      * @Orm\ManyToOne(targetEntity="sportogether\Bundle\Entity\User", inversedBy="messageEmetteur")
-      */
-     private $emetteur;
+         * @Orm\ManyToOne(targetEntity="sportogether\Bundle\Entity\User", inversedBy="messageEmetteur")
+         */
+        private $emetteur;
 
 
-     /**
-      * @Orm\ManyToOne(targetEntity="sportogether\Bundle\Entity\User", inversedBy="messageRecepteur")
-      */
-     private $recepteur;
+        /**
+         * @Orm\ManyToOne(targetEntity="sportogether\Bundle\Entity\User", inversedBy="messageRecepteur")
+         */
+        private $recepteur;
 
 
      /**

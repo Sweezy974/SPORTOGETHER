@@ -18,15 +18,16 @@ use Doctrine\ORM\Mapping as ORM;
       */
      protected $id;
 
-     /**
-      * @Orm\OneToMany(targetEntity="messengerBundle\Entity\message", mappedBy="emetteur")
-      */
-     private $messageEmetteur;
 
-         /**
-          * @Orm\OneToMany(targetEntity="messengerBundle\Entity\message", mappedBy="recepteur")
-          */
-         private $messageRecepteur;
+     /**
+         * @Orm\OneToMany(targetEntity="messengerBundle\Entity\message", mappedBy="emetteur")
+         */
+        private $messageEmetteur;
+
+            /**
+             * @Orm\OneToMany(targetEntity="messengerBundle\Entity\message", mappedBy="recepteur")
+             */
+            private $messageRecepteur;
 
      /**
    * @var string
